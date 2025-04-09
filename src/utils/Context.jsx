@@ -3,7 +3,7 @@ import axios from "../utils/axios";
 
 export const ProductContext = createContext();
 function Context(props) {
-    const [products,setProducts]= useState( JSON.parse(localStorage.getItem("products")) || [])
+    const [products,setProducts]= useState([])
 
     //convert jSON string to object
 
@@ -48,9 +48,9 @@ function Context(props) {
       };
 
     useEffect(()=>{
-        getProducts3();
+        getProducts2();
         
-    },[products])
+    },[])
 
   return <ProductContext.Provider value={[products,setProducts]} >{props.children}</ProductContext.Provider>;
 }

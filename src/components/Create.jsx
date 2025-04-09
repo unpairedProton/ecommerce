@@ -4,46 +4,48 @@ import { ProductContext } from "../utils/Context";
 import { nanoid } from "nanoid";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from "../utils/axios"
+
 
 function Create() {
   const navigate = useNavigate()
 
 
     const [products, setProducts] = useContext(ProductContext);
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
+    const [newProduct,setNewProduct] = useState({
+      id:nanoid(),
+      title:"",
+      image:"",
+      category:"",
+      price:"",
+      description:"",
+    })
+  // const [title, setTitle] = useState("");
+  // const [image, setImage] = useState("");
+  // const [category, setCategory] = useState("");
+  // const [price, setPrice] = useState("");
+  // const [description, setDescription] = useState("");
 
   const addProductHandler =  (e) => {
           e.preventDefault(); 
 
           if (
-            title.trim().length < 5 ||
-            image.trim().length < 5 ||
-            category.trim().length < 5 ||
-            price.trim().length < 1 ||
-            description.trim().length < 5
+            newProduct.title.trim().length < 5 ||
+            newProduct.image.trim().length < 5 ||
+            newProduct.category.trim().length < 5 ||
+            newProduct.price.trim().length < 1 ||
+            newProduct.description.trim().length < 5
           ) {
             alert("Each and every input must have filled");
             return;
           }
 
-          const product={
-            id:nanoid(),
-            title,
-            image,
-            category,
-            price,
-            description,
-          }
-          setProducts([...products,product]);
-          localStorage.setItem("products",JSON.stringify([...products,product]))
-
-          console.log(product);
-            console.log(products);
-
+           axios.post('/products', newProduct)
+           .then(response => console.log(" yey data API ka hai",response.data));
+         
+          setProducts([...products,newProduct]);
+          console.log(products);
+          
             // redirect to homepage
             toast.success("Product Add ho gya Bhai")
             navigate('/')
@@ -66,19 +68,19 @@ function Create() {
           className="
               border-2 border-black rounded-md w-full p-1"
           onChange={(e) => {
-            setImage(e.target.value);
+            setNewProduct({...newProduct,image:e.target.value});
           }}
-          value={image}
+          value={newProduct.image}
         />
         <input
           type="text"
           placeholder="Product Name"
           className="
               border-2 border-black rounded-md w-full p-1"
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-          value={title}
+              onChange={(e) => {
+                setNewProduct({...newProduct,title:e.target.value});
+              }}
+              value={newProduct.title}
         />
         <div className="w-full flex  gap-2">
           <input
@@ -86,31 +88,30 @@ function Create() {
             placeholder="Category Name"
             className="
               border-2 border-black rounded-md w-full p-1"
-            onChange={(e) => {
-              setCategory(e.target.value);
-            }}
-            value={category}
+              onChange={(e) => {
+                setNewProduct({...newProduct,category:e.target.value});
+              }}
+              value={newProduct.category}
           />
           <input
             type="number"
             placeholder="Price"
             className="
               border-2 border-black rounded-md w-full p-1"
-            onChange={(e) => {
-              setPrice(e.target.value);
-            }}
-            value={price}
+              onChange={(e) => {
+                setNewProduct({...newProduct,price:e.target.value});
+              }}
+              value={newProduct.price}
           />
         </div>
         <textarea
           placeholder="Please entr the description"
           className="
               border-2 border-black rounded-md w-full p-1"
-          onChange={(e) => {
-            setDescription(e.target.value);
-          }}
-          rows={'6'}
-          value={description}
+              onChange={(e) => {
+                setNewProduct({...newProduct,description:e.target.value});
+              }}
+              value={newProduct.description}
         />
         <input type="submit" className="w-fit p-2 font-semibold text-lime-700 border-lime-600 border-2 rounded" value={'ADD PRODUCT'} >
         </input>

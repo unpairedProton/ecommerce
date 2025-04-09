@@ -12,18 +12,21 @@ function Details() {
   
 
   useEffect(() => {
-    // getProduct();
-    if (!product) {
-        setProduct(products.filter((e,i)=> e.id == id)[0])
-        // === nahi lga skte as id from useParam is a string
-    }
+    getProduct();
   }, []);
 
   const productDeleteHandler =(id)=>{
 
-    const filteredProducts = products.filter(p=>p.id!==id)
+axios.delete(`/products/${id}`)
+  .then(response => console.log(response));
+console.log(products);
+
+    const filteredProducts = products.filter(p=>p.id!=id)
+    console.log("filteredProducts",filteredProducts);
+    
     setProducts(filteredProducts)
-    localStorage.setItem("products",JSON.stringify(filteredProducts))
+
+    
 
     navigate("/")
   }
