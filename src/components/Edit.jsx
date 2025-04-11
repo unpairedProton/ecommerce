@@ -47,8 +47,8 @@ function Edit() {
   };
 
   return (
-    <div className="bg-cyan-300 w-screen h-screen flex flex-col justify-center items-center ">
-      <Link to="/" className="p-2 border-blue-950 border-2 rounded">
+    <div className="bg-slate-800 w-screen h-screen flex flex-col  justify-center items-center ">
+      <Link to="/" className="p-2 border-zinc-50 text-zinc-100 border-2 rounded">
         Home
       </Link>
      {
@@ -61,12 +61,12 @@ function Edit() {
         }}
         className="w-2/5 flex flex-col gap-2 "
       >
-        <h1 className="text-2xl font-semibold">Product Details</h1>
+        <h1 className="text-2xl font-semibold text-zinc-100 ">Product Edit Details</h1>
         <input
           type="url"
           placeholder="image link"
           className="
-                border-2 border-black rounded-md w-full p-1"
+                border-2 border-black rounded-md w-full p-1 bg-zinc-300"
           onChange={(e) => {
             setProductDetails((productDetails) => ({
               ...productDetails,
@@ -79,7 +79,7 @@ function Edit() {
           type="text"
           placeholder="Product Name"
           className="
-                border-2 border-black rounded-md w-full p-1"
+                border-2 border-black rounded-md w-full p-1 bg-zinc-300"
           onChange={(e) => {
             setProductDetails((productDetails) => ({
               ...productDetails,
@@ -93,7 +93,7 @@ function Edit() {
             type="text"
             placeholder="Category Name"
             className="
-                border-2 border-black rounded-md w-full p-1"
+                border-2 border-black rounded-md w-full p-1 bg-zinc-300"
             onChange={(e) => {
               setProductDetails((productDetails) => ({
                 ...productDetails,
@@ -106,7 +106,7 @@ function Edit() {
             type="number"
             placeholder="Price"
             className="
-                border-2 border-black rounded-md w-full p-1"
+                border-2 border-black rounded-md w-full p-1 bg-zinc-300"
             onChange={(e) => {
               setProductDetails((productDetails) => ({
                 ...productDetails,
@@ -119,7 +119,7 @@ function Edit() {
         <textarea
           placeholder="Please entr the description"
           className="
-                border-2 border-black rounded-md w-full p-1"
+                border-2 border-black rounded-md w-full p-1 bg-zinc-300"
           onChange={(e) => {
             setProductDetails((productDetails) => ({
               ...productDetails,
@@ -132,7 +132,7 @@ function Edit() {
         <input
           type="submit"
           onClick={() => editProductHandler(id)}
-          className="w-fit p-2 font-semibold text-lime-700 border-lime-600 border-2 rounded"
+          className="w-fit p-2 font-semibold text-zinc-100 border-zinc-100 border-2 rounded"
           value={"Edit PRODUCT"}
         ></input>
       </form>
