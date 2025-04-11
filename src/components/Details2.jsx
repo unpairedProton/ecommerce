@@ -35,7 +35,12 @@ console.log(products);
   const getProduct = async () => {
     try {
       const { data } = await axios.get(`/products/${id}`);
-      setProduct(data);
+      // setProduct(data);
+      console.log(data)
+      setProduct(products.filter(p=>p.id==id)[0]);
+      console.log(products);
+      
+      
     } catch (error) {
       console.log(error);
     }

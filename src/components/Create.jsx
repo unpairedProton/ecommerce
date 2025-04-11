@@ -11,6 +11,7 @@ function Create() {
   const navigate = useNavigate()
 
 
+
     const [products, setProducts] = useContext(ProductContext);
     const [newProduct,setNewProduct] = useState({
       id:nanoid(),
@@ -54,9 +55,9 @@ function Create() {
         //   document.querySelector('form').style.display = 'none';
 }
   return (
-    <div className="bg-cyan-300 w-screen h-screen flex flex-col justify-center items-center ">
+    <div className="bg-zinc-100 w-screen h-screen flex flex-col justify-center items-center ">
         <Link to='/' className="p-2 border-blue-950 border-2 rounded" >Home</Link>
-      <form action="" onSubmit={
+      <form action=""   onSubmit={
         (e)=>{addProductHandler(e);//cz wha parameter pass hua h yha bhi hoga yah to niche wala chalao
         // or addProductHandler 
 
@@ -66,7 +67,7 @@ function Create() {
           type="url"
           placeholder="image link"
           className="
-              border-2 border-black rounded-md w-full p-1"
+              border-2 border-black rounded-md w-full p-1 bg-white"
           onChange={(e) => {
             setNewProduct({...newProduct,image:e.target.value});
           }}
@@ -76,7 +77,7 @@ function Create() {
           type="text"
           placeholder="Product Name"
           className="
-              border-2 border-black rounded-md w-full p-1"
+              border-2 border-black rounded-md w-full p-1 bg-white"
               onChange={(e) => {
                 setNewProduct({...newProduct,title:e.target.value});
               }}
@@ -87,7 +88,7 @@ function Create() {
             type="text"
             placeholder="Category Name"
             className="
-              border-2 border-black rounded-md w-full p-1"
+              border-2 border-black rounded-md w-full p-1 bg-white"
               onChange={(e) => {
                 setNewProduct({...newProduct,category:e.target.value});
               }}
@@ -97,7 +98,7 @@ function Create() {
             type="number"
             placeholder="Price"
             className="
-              border-2 border-black rounded-md w-full p-1"
+              border-2 border-black rounded-md w-full p-1 bg-white"
               onChange={(e) => {
                 setNewProduct({...newProduct,price:e.target.value});
               }}
@@ -107,13 +108,13 @@ function Create() {
         <textarea
           placeholder="Please entr the description"
           className="
-              border-2 border-black rounded-md w-full p-1"
+              border-2 border-black rounded-md w-full h-[10vw] p-1 bg-white"
               onChange={(e) => {
                 setNewProduct({...newProduct,description:e.target.value});
               }}
               value={newProduct.description}
         />
-        <input type="submit" className="w-fit p-2 font-semibold text-lime-700 border-lime-600 border-2 rounded" value={'ADD PRODUCT'} >
+        <input type="submit" className="w-fit p-2 font-semibold  bg-slate-800 text-zinc-200 border-2 rounded-lg" value={'ADD PRODUCT'} >
         </input>
       </form>
     </div>
