@@ -33,7 +33,7 @@ console.log(products);
   );
 
   // 2. Get the top 4 products using slice()
-  const topRated = sortedProducts.slice(0, 4);
+  const topRated = sortedProducts.slice(0, 5);
 
   const getProductCategory = async () => {
     try {
