@@ -37,7 +37,7 @@ function Nav() {
   return (
     <div className=" relative w-44 min-h-screen" >
       <div className="w-44 min-h-screen bg-amber-400 " ></div>
-      <nav className="fixed top-0 w-44 gap-2 h-full min-h-screen flex flex-col justify-start items-center pt-2  bg-slate-950 text-zinc-200">
+      <nav className="fixed top-0 w-44 gap-2 h-full min-h-screen flex flex-col justify-start items-center pt-2  bg-red-950 text-zinc-200">
         <div className="w-[90%]" >
           <img  className="w-full object-cover object-center" src={logo} alt="" />
         </div>
