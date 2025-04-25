@@ -3,7 +3,7 @@ import { Routes,Route } from 'react-router-dom'
 import Details2 from '../components/Details2'
 import Home from '../components/Home'
 import Create from '../components/Create'
-import Edit from '../components/Edit'
+import Edit2 from '../components/Edit2'
 
 function Routing() {
   return (
@@ -12,7 +12,7 @@ function Routing() {
         <Route path="/create" element={<Create />} />
 
         <Route path="/details/:id" element={<Details2 />} />
-        <Route path="/edit/:id" element={<Edit />} />
+        <Route path="/edit/:id" element={<Edit2 />} />
     </Routes>
   ) 
 }

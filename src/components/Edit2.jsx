@@ -73,7 +73,7 @@ function Edit() {
               image: e.target.value,
             }));
           }}
-          value={productDetails.image}
+          
         />
         <input
           type="text"
@@ -86,7 +86,7 @@ function Edit() {
               title: e.target.value,
             }));
           }}
-          value={productDetails.title}
+          
         />
         <div className="w-full flex  gap-2">
           <input
@@ -100,7 +100,7 @@ function Edit() {
                 category: e.target.value,
               }));
             }}
-            value={productDetails.category}
+            val
           />
           <input
             type="number"
@@ -113,7 +113,7 @@ function Edit() {
                 price: e.target.value,
               }));
             }}
-            value={productDetails.price}
+            
           />
         </div>
         <textarea
@@ -127,7 +127,7 @@ function Edit() {
             }));
           }}
           rows={"6"}
-          value={productDetails.description}
+          
         />
         <input
           type="submit"
