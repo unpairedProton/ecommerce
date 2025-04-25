@@ -32,14 +32,14 @@ function Edit() {
     navigate("/");
   };
 
-  useEffect(() => {
-    if (products.length > 0) {
-      const foundProduct = products.find((p) => p.id == id);
-      if (foundProduct) {
-        setProductDetails(foundProduct);
-      }
-    }
-  }, [products, id]);
+  // useEffect(() => {
+  //   if (products.length > 0) {
+  //     const foundProduct = products.find((p) => p.id == id);
+  //     if (foundProduct) {
+  //       setProductDetails(foundProduct);
+  //     }
+  //   }
+  // }, [products, id]);
 
 
   const addProductHandler = (e) => {
