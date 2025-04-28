@@ -35,7 +35,6 @@ console.log(products);
   const getProduct = async () => {
     try {
       const { data } = await axios.get(`/products/${id}`);
-      // setProduct(data);
       console.log(data)
       setProduct(products.filter(p=>p.id==id)[0]);
       console.log(products);
@@ -70,7 +69,7 @@ console.log(products);
                                 <div className="flex gap-2">
                                 
                                 {/* edit button */}
-                                    <Link to={`/edit/${product.id}`} onClick={()=>peoductEditHandler(id)}  className="btn rounded border-teal-600 border-2 text-teal-600 px-2">
+                                    <Link to={`/edit/${product.id}`}  className="btn rounded border-teal-600 border-2 text-teal-600 px-2">
                                         Edit
                                     </Link>
 

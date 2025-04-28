@@ -9,6 +9,7 @@ import Loading from "./Loading";
 function Edit() {
   const navigate = useNavigate();
 
+
   const [products, setProducts] = useContext(ProductContext);
   const { id } = useParams();
   const [productDetails, setProductDetails] = useState(null);
