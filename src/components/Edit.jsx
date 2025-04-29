@@ -57,10 +57,9 @@ function Edit() {
         <form
         action=""
         onSubmit={(e) => {
-          addProductHandler(e); //cz wha parameter pass hua h yha bhi hoga yah to niche wala chalao
-          // or addProductHandler
+          addProductHandler(e);
         }}
-        className="w-2/5 flex flex-col gap-2 "
+        className="w-4/5  lg:w-2/5 flex flex-col gap-2 "
       >
         <h1 className="text-2xl font-semibold text-zinc-100 ">Product Edit Details</h1>
         <input

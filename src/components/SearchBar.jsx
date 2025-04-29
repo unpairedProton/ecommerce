@@ -51,7 +51,7 @@ function SearchBar() {
   }, []);
 
   return (
-    <div className="w-full flex justify-start p-2 relative" ref={dropdownRef}>
+    <div className=" w-[84%] md:w-[90%] mt-2.5 self-end lg:w-full flex justify-start p-2 relative z-1" ref={dropdownRef}>
       <div className="w-full rounded-full p-2 pl-3 bg-zinc-200 flex gap-2 items-center">
         <CiSearch />
         <input

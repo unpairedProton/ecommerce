@@ -12,14 +12,26 @@ import ListProduct from "./ListProduct";
 
 function Home() {
   const [products, setProducts] = useContext(ProductContext);
+  
 
+  
   const { search, pathname } = useLocation();
   console.log("search", search);
   console.log("pathname", pathname);
 
 console.log(products);
+const handleTextLimit = ()=>{
+  if(window.innerWidth<640){
+    return 10
+  }
+  else {
+    return 55
+  }
 
-  const maxtitleLength = 55;
+}
+
+const maxtitleLength = 55;
+
   let categoryFromURL = "";
   if (search && search.includes("=")) {
     categoryFromURL = decodeURIComponent(search.split("=")[1]);
@@ -67,10 +79,10 @@ console.log(products);
   // console.log(`filteredProducts are`,filteredProducts);
 
   return (
-    <div className="w-full  ">
+    <div className="">
       <div className=" relative flex w-full h-full ">
         <Nav></Nav>
-        <div className="rightSec  overflow-hidden grow h-full">
+        <div className="rightSec flex flex-col overflow-hidden grow h-full">
           <SearchBar></SearchBar>
           <div className=" w-full h-full flex  gap-2 flex-col p-3">
             <div className=" w-full flex justify-between h-[4vw]"  >
@@ -87,24 +99,27 @@ console.log(products);
                 )
               }
             </div>
-            <div className=" productCardSec pb-2  h-full overflow-x-hidden flex flex-nowrap gap-2">
+            <div className=" productCardSec overflow-x-scroll pb-2  h-full lg:overflow-x-hidden flex flex-nowrap gap-2">
               {topRated.length > 0 ? (
                 topRated.map((e, i) => (
                   <Link
                     to={`/details/${e.id}`}
                     key={i}
-                    className="productCard shrink-0 cursor-pointer w-[15vw] h-fit min-h-90  shadow-lg rounded-md p-2  flex flex-col gap-2 justify-between items-center"
+                    className="productCard shrink-0 cursor-pointer w-[35vw] lg:w-[16vw] h-fit  min-h-60 md:min-h-60 lg:min-h-90  shadow-lg rounded-md p-2  flex flex-col gap-2 justify-between items-center"
                   >
                     <div className="imgCon w-[90%] p-1 hover:scale-110">
                       <img
-                        className="w-full  h-[15vw] object-contain object-center"
+                        className="w-full h-[22vw] md:h-[18vw] lg:h-[15vw] object-contain object-center"
                         src={e.image}
                         alt="product"
                       />
                     </div>
-                    <div className="w-full flex flex-col justify-between h-[10vw] ">
-                      <div className="title text-start font-semibold hover:text-blue-500">
-                        {e.title.length > maxtitleLength
+                    <div className="w-full flex flex-col justify-between h-[24vw] md:h-[16vw] lg:h-[11vw] ">
+                      <div className="title text-xs md:text-sm  lg:text-base text-start font-semibold hover:text-blue-500">
+                        {
+                        
+
+                        e.title.length > maxtitleLength
                           ? `${e.title.slice(0, maxtitleLength)}...`
                           : e.title}
                       </div>
@@ -121,14 +136,14 @@ console.log(products);
                 <Loading />
               )}
             </div>
-            <div className="productListView w-full flex flex-col gap-2">
+            <div className="productListView w-full flex flex-col  gap-3 md:gap-2 lg:gap-2">
               <div className="text-xl font-semibold px-2 ">Products</div>
               <hr className="text-zinc-500 py-2 " />
 
               <div className="w-full px-1 flex py-2  text-zinc-700 text-sm font-bold ">
-                <div className="w-6"> S.no. </div>
+                <div className="w-10 md:w-6 lg:w-6"> S.no. </div>
                 <div className="w-[10vw] text-center ">Image</div>
-                <div className="text-center w-[10vw]">Title</div>
+                <div className="text-center w-[15vw] lg:w-[10vw]">Title</div>
                 <div className="ml-auto w-[8vw]">Price</div>
               </div>
               {filteredProducts.length > 0 ? (

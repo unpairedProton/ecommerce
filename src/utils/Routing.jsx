@@ -4,6 +4,7 @@ import Details2 from '../components/Details2'
 import Home from '../components/Home'
 import Create from '../components/Create'
 import Edit from '../components/Edit'
+import Responsive from '../components/Resposive'
 
 function Routing() {
   return (
@@ -13,6 +14,7 @@ function Routing() {
 
         <Route path="/details/:id" element={<Details2 />} />
         <Route path="/edit/:id" element={<Edit />} />
+        <Route path="/responsive" element={<Responsive />} />
     </Routes>
   ) 
 }
